@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Build outputs
+build/
+dist/
+parts/
+prime/
+stage/
+overlay/
+kadrivesync_*.snap
+
+# Snapcraft
+.snapcraft/
+
+# Editor / OS noise
+.DS_Store
