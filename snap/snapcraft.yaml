@@ -6,6 +6,10 @@ summary: Google Drive en Nautilus sin sincronización
 description: |
   KADrivesync monta Google Drive como una carpeta local visible en Nautilus
   usando rclone y FUSE. No sincroniza archivos, los accede bajo demanda.
+website: https://github.com/kampos/drivenautilus
+source-code: https://github.com/kampos/drivenautilus
+issues: https://github.com/kampos/drivenautilus/issues
+icon: data/icons/org.kampos.KADrivesync.svg
 contact: kampos@kampos.info
 license: GPL-3.0
 

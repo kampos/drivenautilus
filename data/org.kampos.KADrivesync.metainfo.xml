@@ -17,6 +17,7 @@
     </p>
   </description>
   <launchable type="desktop-id">org.kampos.KADrivesync.desktop</launchable>
+  <icon type="stock">org.kampos.KADrivesync</icon>
   <url type="homepage">https://github.com/kampos/drivenautilus</url>
   <url type="bugtracker">https://github.com/kampos/drivenautilus/issues</url>
   <developer_name>Fonteboa</developer_name>
