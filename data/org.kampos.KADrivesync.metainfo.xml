@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-app">
+  <id>org.kampos.KADrivesync</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>KADrivesync</name>
+  <summary>Monta Google Drive como carpeta local sin sincronizar</summary>
+  <description>
+    <p>
+      KADrivesync permite configurar Google Drive como una carpeta visible desde Nautilus mediante
+      rclone mount y FUSE. El contenido no se sincroniza al disco local: se accede bajo demanda,
+      por lo que la aplicación evita duplicar archivos y mantiene el espacio de almacenamiento bajo control.
+    </p>
+    <p>
+      La app crea un servicio de usuario systemd para el montaje automático, añade el acceso a Nautilus
+      y ofrece una interfaz gráfica para diagnosticar dependencias y gestionar la conexión.
+    </p>
+  </description>
+  <launchable type="desktop-id">org.kampos.KADrivesync.desktop</launchable>
+  <url type="homepage">https://github.com/kampos/drivenautilus</url>
+  <url type="bugtracker">https://github.com/kampos/drivenautilus/issues</url>
+  <developer_name>Fonteboa</developer_name>
+</component>

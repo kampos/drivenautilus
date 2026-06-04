@@ -1,0 +1,62 @@
+name: kadrivesync
+base: core26
+version: '0.1.0'
+title: KADrivesync
+summary: Google Drive en Nautilus sin sincronización
+description: |
+  KADrivesync monta Google Drive como una carpeta local visible en Nautilus
+  usando rclone y FUSE. No sincroniza archivos, los accede bajo demanda.
+contact: kampos@kampos.info
+license: GPL-3.0
+
+grade: stable
+confinement: classic
+
+apps:
+  kadrivesync:
+    command: usr/bin/kadrivesync
+    desktop: usr/share/applications/org.kampos.KADrivesync.desktop
+    common-id: org.kampos.KADrivesync
+    environment:
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages:$SNAP/lib/python3.14/site-packages:$PYTHONPATH
+      GI_TYPELIB_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/girepository-1.0:$SNAP/usr/lib/girepository-1.0
+
+parts:
+  kadrivesync:
+    plugin: dump
+    source: .
+    parse-info:
+      - data/org.kampos.KADrivesync.metainfo.xml
+    stage-packages:
+      - python3
+      - python3-gi
+      - gir1.2-gtk-4.0
+      - gir1.2-adw-1
+      - rclone
+      - fuse3
+      - nautilus
+    override-build: |
+      craftctl default
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      mkdir -p $CRAFT_PART_INSTALL/usr/lib/python3/dist-packages/drivenautilus
+      cp -r src/drivenautilus/* $CRAFT_PART_INSTALL/usr/lib/python3/dist-packages/drivenautilus/
+      
+      # Crear el ejecutable manual
+      echo '#!/usr/bin/python3' > $CRAFT_PART_INSTALL/usr/bin/kadrivesync
+      echo 'import sys' >> $CRAFT_PART_INSTALL/usr/bin/kadrivesync
+      echo 'from drivenautilus.main import main' >> $CRAFT_PART_INSTALL/usr/bin/kadrivesync
+      echo 'if __name__ == "__main__": sys.exit(main())' >> $CRAFT_PART_INSTALL/usr/bin/kadrivesync
+      chmod +x $CRAFT_PART_INSTALL/usr/bin/kadrivesync
+      
+      # Copiar datos y asegurar icono
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/applications
+      cp data/org.kampos.KADrivesync.desktop $CRAFT_PART_INSTALL/usr/share/applications/
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/metainfo
+      cp data/org.kampos.KADrivesync.metainfo.xml $CRAFT_PART_INSTALL/usr/share/metainfo/
+      
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/icons/hicolor/scalable/apps
+      cp data/icons/org.kampos.KADrivesync.svg $CRAFT_PART_INSTALL/usr/share/icons/hicolor/scalable/apps/
+      
+      # Fallback de icono
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/pixmaps
+      cp data/icons/org.kampos.KADrivesync.svg $CRAFT_PART_INSTALL/usr/share/pixmaps/org.kampos.KADrivesync.svg

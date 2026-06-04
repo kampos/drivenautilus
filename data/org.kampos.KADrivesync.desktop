@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=KADrivesync
+Comment=Monta Google Drive como carpeta local sin sincronizar
+Exec=kadrivesync
+Icon=org.kampos.KADrivesync
+Terminal=false
+Type=Application
+Categories=Utility;FileTools;GNOME;
+StartupNotify=true
+Keywords=google;drive;mount;nautilus;rclone;

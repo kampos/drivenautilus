@@ -1,0 +1,22 @@
+[project]
+name = "kadrivesync"
+version = "0.1.0"
+description = "Monta Google Drive como carpeta local en Ubuntu sin sincronización"
+authors = [
+    { name = "Fonteboa", email = "info@fonteboa.org" }
+]
+dependencies = [
+    "pygobject",
+]
+requires-python = ">=3.12"
+license = { text = "GPL-3.0-only" }
+
+[project.scripts]
+kadrivesync = "drivenautilus.main:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

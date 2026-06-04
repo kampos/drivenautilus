@@ -1,0 +1,21 @@
+.success {
+    color: #26a269;
+}
+
+.error {
+    color: #c01c28;
+}
+
+.warning {
+    color: #e66100;
+}
+
+.title-1 {
+    font-weight: 800;
+    font-size: 24pt;
+}
+
+.title-2 {
+    font-weight: 700;
+    font-size: 18pt;
+}

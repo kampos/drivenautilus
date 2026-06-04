@@ -1,0 +1,4 @@
+src/drivenautilus/* usr/lib/python3/dist-packages/drivenautilus/
+data/org.kampos.KADrivesync.desktop usr/share/applications/
+data/org.kampos.KADrivesync.metainfo.xml usr/share/metainfo/
+data/icons/org.kampos.KADrivesync.svg usr/share/icons/hicolor/scalable/apps/
